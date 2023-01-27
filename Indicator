@@ -4,3 +4,12 @@ hist = vedl.history(period='5y')
 import plotly.graph_objects as go
 fig = go.Figure(data=go.Scatter(x=hist.index,y=hist['High'], mode='lines'))
 fig.show()
+
+fig = go.Figure(data=go.Scatter(x=hist.index,y=hist['Close'], mode='lines+markers'))
+fig.show()
+
+from plotly.subplots import make_subplots
+fig2 = make_subplots(specs=[[{"secondary_y": True}]])
+fig2.add_trace(go.Scatter(x=hist.index,y=hist['Close'],name='Price'),secondary_y=False)
+fig2.add_trace(go.Bar(x=hist.index,y=hist['Volume'],name='Volume'),secondary_y=True)
+fig2.show()
