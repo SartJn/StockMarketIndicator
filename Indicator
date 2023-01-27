@@ -1,0 +1,6 @@
+import yfinance
+vedl = yfinance.Ticker('VEDL.NS')
+hist = vedl.history(period='5y')
+import plotly.graph_objects as go
+fig = go.Figure(data=go.Scatter(x=hist.index,y=hist['High'], mode='lines'))
+fig.show()
