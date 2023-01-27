@@ -13,3 +13,6 @@ fig2 = make_subplots(specs=[[{"secondary_y": True}]])
 fig2.add_trace(go.Scatter(x=hist.index,y=hist['Close'],name='Price'),secondary_y=False)
 fig2.add_trace(go.Bar(x=hist.index,y=hist['Volume'],name='Volume'),secondary_y=True)
 fig2.show()
+
+fig2.update_yaxes(range=[0,7000000000],secondary_y=True)
+fig2.update_yaxes(visible=False, secondary_y=True)
